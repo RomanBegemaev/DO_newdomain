@@ -12,7 +12,7 @@ commands = [
     f"ln -s /etc/nginx/sites-available/{domain_name} /etc/nginx/sites-enabled/"
 ]
 
-# Выполнение команд
+# Выполнение командп
 for command in commands:
     print(f"Выполняется команда: {command}")
     result = subprocess.run(command, shell=True, capture_output=True, text=True)
