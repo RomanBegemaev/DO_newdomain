@@ -6,9 +6,9 @@ domain_name = input("Enter domain name: ")
 
 # Список команд для выполнения
 commands = [
-    f"rm /etc/nginx/site-enabled/virusfreeprotect.com ",
+    f"rm /etc/nginx/sites-enabled/virusfreeprotect.com",
     f"cp /etc/nginx/sites-available/virusfreeprotect.com  /etc/nginx/sites-available/{domain_name}",
-    f'sed -i "s/virusfreeprotect.com /{domain_name}/g" /etc/nginx/sites-available/{domain_name}',
+    f'sed -i "s/virusfreeprotect.com/{domain_name}/g" /etc/nginx/sites-available/{domain_name}',
     f"ln -s /etc/nginx/sites-available/{domain_name} /etc/nginx/sites-enabled/"
 ]
 
@@ -18,6 +18,6 @@ for command in commands:
     result = subprocess.run(command, shell=True, capture_output=True, text=True)
     
     if result.returncode == 0:
-        print("Команда успешно выполнена.")
+        print("Succses")
     else:
-        print(f"Ошибка при выполнении команды: {result.stderr}")
+        print(f"Error {result.stderr}")
